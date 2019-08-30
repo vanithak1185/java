@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.fresco.play</groupId>
+  <artifactId>maven-test</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>maven-test</name>
+  
+  <build>
+        <finalName>${project.artifactId}</finalName>        
+        <filters>
+            <filter>src/main/resources/profile.properties</filter>
+        </filters>
+        <resources>
+          <resource>
+           <directory>src/main/resources</directory>
+           <filtering>true</filtering>
+          </resource>
+        </resources>
+        <plugins>        
+          <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                  <configuration>
+                    <mainClass>com.fresco.play.App</mainClass>
+                  </configuration>
+            </plugin>  
+        </plugins>      
+  </build>
+  
+  <profiles>
+    <profile>
+      <id>tesla</id>
+      <properties>
+        <profile.name>Nicola Tesla</profile.name>
+        <profile.about>Inventor that created renewable energy and cared more about people than making money</profile.about>
+      </properties>
+    </profile>
+    <profile>
+      <id>edison</id>
+      <properties>
+        <profile.name>Thomas Edison</profile.name>
+        <profile.about>Wealthy Businessman who created a way to charge money for electricity and methods to control energy resources</profile.about>
+      </properties>
+    </profile>
+  </profiles>
+</project>

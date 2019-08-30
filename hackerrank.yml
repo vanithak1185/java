@@ -1,0 +1,18 @@
+version: 1.0
+configuration:
+  has_webserver: true
+  scoring:
+    command: bash .check.sh
+  ide_config:
+    default_open_files:
+      - pom.xml
+      - App.java
+    project_menu:
+      run: mvn post-clean
+      install: bash .install.sh
+      test: bash .score.sh
+    readonly_paths:
+      - .score.sh
+      - .install.sh
+      - .check.sh
+
